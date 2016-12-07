@@ -1,0 +1,15 @@
+{
+    "name": "prestashop/status-board",
+    "description": "Dashboard to display a list of projetcs builds from both open source and closed source projects",
+    "type": "project",
+    "require": {
+        "symfony/yaml": "3.2.*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mickaël Andrieu",
+            "email": "andrieu.travail@gmail.com"
+        }
+    ]
+}

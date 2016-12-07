@@ -1,0 +1,9 @@
+repositories:
+  - 'PrestaShop'
+  - 'prestonbot'
+  - 'StarterTheme'
+  - 'prestashop.github.io'
+  - 'docker-ci'
+  - 'docker'
+  - 'TranslationToolsBundle'
+  - 'PSFunctionalTests'
