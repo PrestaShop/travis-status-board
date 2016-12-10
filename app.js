@@ -1,26 +1,19 @@
 var config = JSON.parse(document.getElementById('config').innerHTML);
 var API_CALL = "https://api.travis-ci.org/v3/owner/"+ config.organization +"?include=organization.repositories,repository.default_branch,build.commit";
 
-/**
- * Status Board
- */
-
 var StatusBoard = new Vue({
-
   el: '#app',
-
   data: {
     repositories: null
   },
-
   created: function () {
     this.fetchData();
   },
 
   methods: {
     fetchData: function () {
-      var self = this;
-      var req = new XMLHttpRequest();
+        var self = this;
+        var req = new XMLHttpRequest();
         req.open('GET', API_CALL, true);
         req.setRequestHeader('Content-Type', 'application/json');
 
@@ -49,6 +42,11 @@ Vue.component('project', {
         commit: function (v) {
             return v.substr(0, 7);
         },
+    },
+    methods: {
+        hasState: function (state) {
+            return state === this.project.default_branch.last_build.state;
+        }
     },
     computed: {
         since: function () {
@@ -90,20 +88,11 @@ Vue.component('project', {
 
             return Math.floor(seconds) + " seconds";
         },
-        isBroken: function () {
-            return 'failed' === this.project.default_branch.last_build.state;
-        },
-        isOk: function () {
-            return 'passed' === this.project.default_branch.last_build.state;
-        },
-        isWaiting: function () {
-            return !this.isOk && !this.isBroken;
-        },
         manageClasses: function () {
             return {
-                'alert alert-danger': this.isBroken,
-                'alert alert-warning': this.isWaiting,
-                'alert alert-success': this.isOk
+                'alert alert-danger': this.hasState('failed'),
+                'alert alert-warning': this.hasState('created'),
+                'alert alert-success': this.hasState('passed')
             }
         }
     },
