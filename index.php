@@ -26,6 +26,7 @@ $config = json_encode(Yaml::parse(file_get_contents('config.yml')));
     <head>
         <title>Status board</title>
         <meta http-equiv="refresh" content="60" >
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="app.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.4/vue.js"></script>
