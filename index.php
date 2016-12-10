@@ -40,7 +40,7 @@ $config = json_encode(Yaml::parse(file_get_contents('config.yml')));
                 </div>
             </div>
         </div>
-        <div id="config" style="display: none;">
+        <div id="config" class="hidden">
             <?php echo $config; ?>
         </div>
         <script type="text/x-template" id="project-template">
