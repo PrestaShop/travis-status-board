@@ -6,7 +6,7 @@ A minimalist but fully functional and configurable board for travis builds
 # installation
 
 ```bash
-$ composer install
+$ composer install prestashop/status-board
 ```
 
 Then create the ``config.yml`` file using the dist file provided as exemple.
